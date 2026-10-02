@@ -1,9 +1,11 @@
 from fastapi import FastAPI
+from app.routes.jobs import router as jobs_router
 app=FastAPI(
     title="Job Portal API",
     description="This is a Job Portal API built with FastAPI",
     version="1.0.0"
 )
+app.include_router(jobs_router)
 
 @app.get("/")
 def home():
