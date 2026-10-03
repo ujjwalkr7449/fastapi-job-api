@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from app.schemas import JobCreate
+
 router =APIRouter(
     prefix="/jobs",
     tags=["jobs"]
@@ -12,10 +14,11 @@ def get_jobs():
 
 
 @router.post("/")
-def create_job(job:dict):
-    jobs.append(job)
+def create_job(job:JobCreate):
+    jobs.append(job.Model_dump())
     return {
         "message": "Job created successfully",
         "job": job
     }
+    
     

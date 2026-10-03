@@ -7,6 +7,10 @@ app=FastAPI(
 )
 app.include_router(jobs_router)
 
+
+
+
+
 @app.get("/")
 def home():
     return {"message": "Welcome to the Job Portal API!"}
